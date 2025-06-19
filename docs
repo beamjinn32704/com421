@@ -8,7 +8,7 @@ export DISPLAY=":0"
 export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u)/bus"
 
 cd ~/Pictures
-wget https://mythologyworldwide.com/wp-content/uploads/2024/09/mythologyworldwide.com-Bigfoot-A-Myth-or-a-Reality-The-Scientific-Evidence.webp
+wget https://as2.ftcdn.net/v2/jpg/05/43/32/69/1000_F_543326918_MNhEK2NdU9E1bU6WbLLQv8uxAxuhCPll.jpg
 
 # Determine the current color scheme to decide which property to set
 COLOR_SCHEME=$(gsettings get org.gnome.desktop.interface color-scheme)
@@ -16,8 +16,8 @@ COLOR_SCHEME=$(gsettings get org.gnome.desktop.interface color-scheme)
 # Change the wallpaper based on the color scheme
 if [ "$COLOR_SCHEME" = "'prefer-dark'" ]; then
     # Set the wallpaper for dark theme
-    gsettings set org.gnome.desktop.background picture-uri-dark ~/Pictures/mythologyworldwide.com-Bigfoot-A-Myth-or-a-Reality-The-Scientific-Evidence.webp
+    gsettings set org.gnome.desktop.background picture-uri-dark ~/Pictures/1000_F_543326918_MNhEK2NdU9E1bU6WbLLQv8uxAxuhCPll.jpg
 else
     # Set the wallpaper for light theme
-    gsettings set org.gnome.desktop.background picture-uri ~/Pictures/mythologyworldwide.com-Bigfoot-A-Myth-or-a-Reality-The-Scientific-Evidence.webp
+    gsettings set org.gnome.desktop.background picture-uri ~/Pictures/1000_F_543326918_MNhEK2NdU9E1bU6WbLLQv8uxAxuhCPll.jpg
 fi
