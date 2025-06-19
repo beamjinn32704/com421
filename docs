@@ -8,7 +8,9 @@ export DISPLAY=":0"
 export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u)/bus"
 
 cd ~/Pictures
-wget https://as2.ftcdn.net/v2/jpg/05/43/32/69/1000_F_543326918_MNhEK2NdU9E1bU6WbLLQv8uxAxuhCPll.jpg
+picName = 22JOURNEYS1_SPAN-superJumbo.jpg
+rm -rf picName*
+wget https://static01.nyt.com/images/2012/04/22/travel/22JOURNEYS1_SPAN/22JOURNEYS1_SPAN-superJumbo.jpg
 
 # Determine the current color scheme to decide which property to set
 COLOR_SCHEME=$(gsettings get org.gnome.desktop.interface color-scheme)
