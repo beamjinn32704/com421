@@ -1,25 +1,39 @@
 #!/bin/bash
 
-# Define the directory containing the wallpapers
-WALLPAPER_DIR="~/Pictures/"
+# Define the URL of the image
+IMAGE_URL="https://static01.nyt.com/images/2012/04/22/travel/22JOURNEYS1_SPAN/22JOURNEYS1_SPAN-superJumbo.jpg"
 
-# Make sure we can connect to the desktop environment
+# Extract the file name from the URL
+picName=$(basename "$IMAGE_URL")
+
+# Define the download directory
+WALLPAPER_DIR="$HOME/Pictures"
+
+# Set up environment variables for gsettings (required when running from cron or scripts)
 export DISPLAY=":0"
 export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u)/bus"
 
-cd ~/Pictures
-picName = "22JOURNEYS1_SPAN-superJumbo.jpg"
-rm -rf "$picName*" 2> /tmp/std_error
-wget https://static01.nyt.com/images/2012/04/22/travel/22JOURNEYS1_SPAN/22JOURNEYS1_SPAN-superJumbo.jpg
+# Navigate to the wallpaper directory
+cd "$WALLPAPER_DIR" || exit 1
 
-# Determine the current color scheme to decide which property to set
+# Clean up any previous versions
+rm -f "$picName.*" 2>/tmp/std_error
+
+# Download the image
+wget "$IMAGE_URL" -O "$picName"
+
+# Check if the image downloaded successfully
+if [ ! -f "$picName" ]; then
+    echo "Failed to download image." >&2
+    exit 1
+fi
+
+# Get the current color scheme (for GNOME >= 42)
 COLOR_SCHEME=$(gsettings get org.gnome.desktop.interface color-scheme)
 
-# Change the wallpaper based on the color scheme
+# Set the wallpaper depending on the theme
 if [ "$COLOR_SCHEME" = "'prefer-dark'" ]; then
-    # Set the wallpaper for dark theme
-    gsettings set org.gnome.desktop.background picture-uri-dark "$HOME/Pictures/$picName"
+    gsettings set org.gnome.desktop.background picture-uri-dark "file://$WALLPAPER_DIR/$picName"
 else
-    # Set the wallpaper for light theme
-    gsettings set org.gnome.desktop.background picture-uri "$HOME/Pictures/$picName"
+    gsettings set org.gnome.desktop.background picture-uri "file://$WALLPAPER_DIR/$picName"
 fi
