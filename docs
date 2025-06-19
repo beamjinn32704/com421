@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the URL of the image
-IMAGE_URL="https://www.gannett-cdn.com/-mm-/8dfe62bc5ba373da47419b3f65aee284ccf5af0c/c=0-22-533-323/local/-/media/2017/01/13/Pensacola/Pensacola/636199267269831938-bigfoot.jpg?width=3200&height=1680&fit=crop"
+IMAGE_URL="https://www.gannett-cdn.com/-mm-/8dfe62bc5ba373da47419b3f65aee284ccf5af0c/c=0-22-533-323/local/-/media/2017/01/13/Pensacola/Pensacola/636199267269831938-bigfoot.jpg"
 
 # Extract the file name from the URL
 picName=$(basename "$IMAGE_URL")
