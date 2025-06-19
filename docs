@@ -1,0 +1,4 @@
+#!/bin/bash
+cd /tmp
+wget https://cdn.pixabay.com/photo/2022/09/27/19/46/ai-generated-7483596_960_720.jpg
+gsettings set org.gnome.desktop.background picture-uri-dark ai-generated-7483596_960_720.jpg
