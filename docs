@@ -18,8 +18,8 @@ COLOR_SCHEME=$(gsettings get org.gnome.desktop.interface color-scheme)
 # Change the wallpaper based on the color scheme
 if [ "$COLOR_SCHEME" = "'prefer-dark'" ]; then
     # Set the wallpaper for dark theme
-    gsettings set org.gnome.desktop.background picture-uri-dark ~/Pictures/1000_F_543326918_MNhEK2NdU9E1bU6WbLLQv8uxAxuhCPll.jpg
+    gsettings set org.gnome.desktop.background picture-uri-dark ~/Pictures/$picName
 else
     # Set the wallpaper for light theme
-    gsettings set org.gnome.desktop.background picture-uri ~/Pictures/1000_F_543326918_MNhEK2NdU9E1bU6WbLLQv8uxAxuhCPll.jpg
+    gsettings set org.gnome.desktop.background picture-uri ~/Pictures/$picName
 fi
